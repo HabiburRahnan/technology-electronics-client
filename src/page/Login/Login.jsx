@@ -1,18 +1,20 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const { signInWithGoogle, loginUser } = useContext(AuthContext);
+  const { singIn, signInWithGoogle } = useContext(AuthContext);
 
-
+  const location = useLocation();
+  const navigate = useNavigate();
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
       })
       .catch((error) => {
-        console.error(error);
+        // console.error(error);
       });
   };
   const handleLogin = (e) => {
@@ -21,12 +23,17 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    loginUser(email, password)
-      .then((result) => {
-        console.log(result.user);
+    singIn(email, password)
+      .then(() => {
+        navigate(location?.state ? location.state : "/");
+        Swal.fire("success Login!", "thank you!", "success");
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        Swal.fire(
+          "please provide right email and password!",
+          "thank you!",
+          "error"
+        );
       });
   };
   return (
