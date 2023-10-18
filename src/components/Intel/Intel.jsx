@@ -1,8 +1,37 @@
-import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Intel = () => {
-  const intelPhone = useLoaderData();
-  console.log(intelPhone);
+  const loadedPhone = useLoaderData();
+  const [intelPhone, setIntelPhone] = useState(loadedPhone);
+  const handleDelete = (_id) => {
+    console.log(_id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/products/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your Phone has been deleted.", "success");
+              const remaining = intelPhone.filter((phone) => phone._id !== _id);
+              setIntelPhone(remaining);
+            }
+          });
+      }
+    });
+  };
   return (
     <div>
       <div className="carousel w-full">
@@ -74,8 +103,21 @@ const Intel = () => {
               <div className="card-body">
                 <h2 className="card-title">{phone.name}</h2>
                 <p>{phone.description.slice(0, 100)}</p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
+                <div className="btn-group gap-4">
+                  <button className="btn bg-blue-500 hover:bg-blue-500 text-white">
+                    View Details
+                  </button>
+                  <Link
+                    to={`/updateProduct/${phone._id}`}
+                    className="btn bg-orange-500 hover:bg-orange-500 text-white">
+                    Edit
+                  </Link>
+
+                  <button
+                    onClick={() => handleDelete(phone._id)}
+                    className="btn bg-red-600 hover:bg-red-600 text-white">
+                    Delete
+                  </button>
                 </div>
               </div>
             </div>

@@ -21,6 +21,7 @@ import Apple from "./components/Apple/Apple";
 import Sony from "./components/Sony/Sony";
 import Vivo from "./components/Vivo/Vivo";
 import Huawei from "./components/Huawei/Huawei";
+import UpdateProduct from "./components/UpdateProduct/UpdateProduct";
 
 const router = createBrowserRouter([
   {
@@ -38,15 +39,16 @@ const router = createBrowserRouter([
         element: <Category></Category>,
         loader: (params) =>
           fetch(`http://localhost:5000/products/${params.id}`),
-        // loader: () => fetch(`http://localhost:5000/products`),
       },
       {
         path: "/addProduct",
         element: <AddProduct></AddProduct>,
       },
       {
-        path: "/updateProduct",
-        element: <AddProduct></AddProduct>,
+        path: "/updateProduct/:id",
+        element: <UpdateProduct></UpdateProduct>,
+        loader: (params) =>
+          fetch(`http://localhost:5000/products/${params.params.id}`),
       },
       {
         path: "/category/Intel",

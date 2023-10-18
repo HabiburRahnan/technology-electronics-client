@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Samsung = () => {
-  const samsungPhone = useLoaderData();
+  const loadedPhone = useLoaderData();
+  const [samsungPhone, setSamsungPhone] = useState(loadedPhone);
+  
 
   const handleDelete = (_id) => {
     console.log(_id);
@@ -24,12 +27,16 @@ const Samsung = () => {
             console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your Phone has been deleted.", "success");
+
+              const remaining = samsungPhone.filter(
+                (phone) => phone._id !== _id
+              );
+              setSamsungPhone(remaining);
             }
           });
       }
     });
   };
-
   return (
     <div>
       <div className="carousel w-full">
@@ -106,10 +113,11 @@ const Samsung = () => {
                     View Details
                   </button>
                   <Link
-                    to="/updateProduct"
+                    to={`/updateProduct/${phone._id}`}
                     className="btn bg-orange-500 hover:bg-orange-500 text-white">
                     Edit
                   </Link>
+
                   <button
                     onClick={() => handleDelete(phone._id)}
                     className="btn bg-red-600 hover:bg-red-600 text-white">
