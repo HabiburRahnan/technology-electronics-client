@@ -11,6 +11,16 @@ import Register from "./page/Register/Register.jsx";
 import Main from "./Layout/Main.jsx";
 import ErrorPage from "./page/ErrorPage/ErrorPage.jsx";
 import AuthProvider from "./Provider/AuthProvider";
+import Category from "./components/category/Category";
+import Intel from "./components/Intel/Intel";
+import Oppo from "./components/Oppo/Oppo";
+import Walton from "./components/Walton/Walton";
+import Samsung from "./components/Samsung/Samsung";
+import Lenovo from "./components/Lenovo/Lenovo";
+import Apple from "./components/Apple/Apple";
+import Sony from "./components/Sony/Sony";
+import Vivo from "./components/Vivo/Vivo";
+import Huawei from "./components/Huawei/Huawei";
 
 const router = createBrowserRouter([
   {
@@ -23,10 +33,61 @@ const router = createBrowserRouter([
         element: <Home></Home>,
         loader: () => fetch(`/BrandName.json`),
       },
-
+      {
+        path: "/category/:id",
+        element: <Category></Category>,
+        loader: (params) =>
+          fetch(`http://localhost:5000/products/${params.id}`),
+        // loader: () => fetch(`http://localhost:5000/products`),
+      },
       {
         path: "/addProduct",
         element: <AddProduct></AddProduct>,
+      },
+      {
+        path: "/category/Intel",
+        element: <Intel></Intel>,
+        loader: () => fetch(`http://localhost:5000/products`),
+      },
+      {
+        path: "/category/Oppo",
+        element: <Oppo></Oppo>,
+        loader: () => fetch(`http://localhost:5000/products`),
+      },
+      {
+        path: "/category/Walton",
+        element: <Walton></Walton>,
+        loader: () => fetch(`http://localhost:5000/products`),
+      },
+      {
+        path: "/category/Samsung",
+        element: <Samsung></Samsung>,
+        loader: () => fetch(`http://localhost:5000/products`),
+      },
+      {
+        path: "/category/Lenovo",
+        element: <Lenovo></Lenovo>,
+        loader: () => fetch(`http://localhost:5000/products`),
+      },
+      {
+        path: "/category/Apple",
+        element: <Apple></Apple>,
+        loader: () => fetch(`http://localhost:5000/products`),
+      },
+      {
+        path: "/category/Sony",
+        element: <Sony></Sony>,
+        loader: () => fetch(`http://localhost:5000/products`),
+      },
+      {
+        path: "/category/Vivo",
+        element: <Vivo></Vivo>,
+        loader: () => fetch(`http://localhost:5000/products`),
+      },
+      {
+        path: "/category/Huawei",
+        element: <Huawei></Huawei>,
+        loader: () => fetch(`http://localhost:5000/products`),
       },
       {
         path: "/myCart",

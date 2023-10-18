@@ -4,7 +4,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createUser, ProfileUpdate } = useContext(AuthContext);
+  const { createUser, } = useContext(AuthContext);
   const [registerError, setRegisterError] = useState("");
   const navigate = useNavigate();
 
@@ -28,7 +28,7 @@ const Register = () => {
       );
       return;
     }
-    createUser(email, password)
+    createUser(name, photo, email, password)
       .then(() => {
         navigate(location?.state ? location.state : "/");
         Swal.fire("success register!", "thank you!", "success");
@@ -36,8 +36,6 @@ const Register = () => {
       .catch(() => {
         Swal.fire("please provide right information!", "thank you!", "error");
       });
-
-    ProfileUpdate(name,photo);
   };
 
   return (
