@@ -4,7 +4,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, ProfileUpdate } = useContext(AuthContext);
   const [registerError, setRegisterError] = useState("");
   const navigate = useNavigate();
 
@@ -36,6 +36,8 @@ const Register = () => {
       .catch(() => {
         Swal.fire("please provide right information!", "thank you!", "error");
       });
+
+    ProfileUpdate(name,photo);
   };
 
   return (

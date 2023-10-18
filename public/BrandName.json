@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "brandName": "Apple",
+    "image": "https://i.ibb.co/3c1Jp1d/images-4-removebg-preview.png"
+  },
+  {
+    "id": 2,
+    "brandName": "Sony",
+    "image": "https://i.ibb.co/gFbydH0/images-5.jpg"
+  },
+  {
+    "id": 3,
+    "brandName": "Lenovo",
+    "image": "https://i.ibb.co/PMTMRG0/markenname-lenovo-berlin-FM9-YR4.jpg"
+  },
+  {
+    "id": 4,
+    "brandName": "Walton",
+    "image": "https://i.ibb.co/R7xC7fw/download-6.jpg"
+  },
+  {
+    "id": 5,
+    "brandName": "Samsung",
+    "image": "https://i.ibb.co/hKqr6hw/download-7.jpg"
+  },
+  {
+    "id": 6,
+    "brandName": "Intel",
+    "image": "https://i.ibb.co/ZMjjb4k/download-9.jpg"
+  },
+  {
+    "id": 7,
+    "brandName": "Huawei",
+    "image": "https://i.ibb.co/3MZvHf8/download-1.png"
+  },
+  {
+    "id": 8,
+    "brandName": "Vivo",
+    "image": "https://i.ibb.co/rGPp5D6/images-6.jpg"
+  },
+  {
+    "id": 9,
+    "brandName": "Oppo",
+    "image": "https://i.ibb.co/2cMB5C6/images.png"
+  }
+]
