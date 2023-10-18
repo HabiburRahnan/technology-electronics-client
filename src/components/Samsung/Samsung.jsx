@@ -1,7 +1,35 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Samsung = () => {
   const samsungPhone = useLoaderData();
+
+  const handleDelete = (_id) => {
+    console.log(_id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/products/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your Phone has been deleted.", "success");
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div>
       <div className="carousel w-full">
@@ -77,10 +105,14 @@ const Samsung = () => {
                   <button className="btn bg-blue-500 hover:bg-blue-500 text-white">
                     View Details
                   </button>
-                  <button className="btn bg-orange-500 hover:bg-orange-500 text-white">
+                  <Link
+                    to="/updateProduct"
+                    className="btn bg-orange-500 hover:bg-orange-500 text-white">
                     Edit
-                  </button>
-                  <button className="btn bg-red-600 hover:bg-red-600 text-white">
+                  </Link>
+                  <button
+                    onClick={() => handleDelete(phone._id)}
+                    className="btn bg-red-600 hover:bg-red-600 text-white">
                     Delete
                   </button>
                 </div>

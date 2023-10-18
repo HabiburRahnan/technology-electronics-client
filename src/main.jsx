@@ -45,6 +45,10 @@ const router = createBrowserRouter([
         element: <AddProduct></AddProduct>,
       },
       {
+        path: "/updateProduct",
+        element: <AddProduct></AddProduct>,
+      },
+      {
         path: "/category/Intel",
         element: <Intel></Intel>,
         loader: () => fetch(`http://localhost:5000/products`),
