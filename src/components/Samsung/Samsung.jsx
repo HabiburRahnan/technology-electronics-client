@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 const Samsung = () => {
   const loadedPhone = useLoaderData();
   const [samsungPhone, setSamsungPhone] = useState(loadedPhone);
-  
 
   const handleDelete = (_id) => {
     console.log(_id);
@@ -106,40 +105,42 @@ const Samsung = () => {
                 <img src={phone.photo} alt="Shoes" />
               </figure>
               <div className="rating ml-8">
-              <input
-                type="radio"
-                name="rating"
-                className="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating"
-                className="mask mask-star-2 bg-orange-400"
-                checked
-              />
-              <input
-                type="radio"
-                name="rating"
-                className="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating"
-                className="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating"
-                className="mask mask-star-2 bg-orange-400"
-              />
-            </div>
+                <input
+                  type="radio"
+                  name="rating"
+                  className="mask mask-star-2 bg-orange-400"
+                />
+                <input
+                  type="radio"
+                  name="rating"
+                  className="mask mask-star-2 bg-orange-400"
+                  checked
+                />
+                <input
+                  type="radio"
+                  name="rating"
+                  className="mask mask-star-2 bg-orange-400"
+                />
+                <input
+                  type="radio"
+                  name="rating"
+                  className="mask mask-star-2 bg-orange-400"
+                />
+                <input
+                  type="radio"
+                  name="rating"
+                  className="mask mask-star-2 bg-orange-400"
+                />
+              </div>
               <div className="card-body">
                 <h2 className="card-title">{phone.name}</h2>
                 <p>{phone.description.slice(0, 100)}</p>
                 <div className="btn-group gap-4">
-                  <button className="btn bg-blue-500 hover:bg-blue-500 text-white">
+                  <Link
+                    to={`/viewDetails/${phone._id}`}
+                    className="btn bg-blue-500 hover:bg-blue-500 text-white">
                     View Details
-                  </button>
+                  </Link>
                   <Link
                     to={`/updateProduct/${phone._id}`}
                     className="btn bg-orange-500 hover:bg-orange-500 text-white">

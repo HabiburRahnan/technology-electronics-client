@@ -22,6 +22,8 @@ import Sony from "./components/Sony/Sony";
 import Vivo from "./components/Vivo/Vivo";
 import Huawei from "./components/Huawei/Huawei";
 import UpdateProduct from "./components/UpdateProduct/UpdateProduct";
+import BestSell from "./components/BestSell/BestSell";
+import ViewDetails from "./components/ViewDetails/ViewDetails";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,16 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         loader: () => fetch(`/BrandName.json`),
+      },
+      {
+        path: "/viewDetails/:id",
+        element: <ViewDetails></ViewDetails>,
+        loader: () => fetch(`http://localhost:5000/products`),
+      },
+      {
+        path: "/",
+        element: <BestSell></BestSell>,
+        loader: () => fetch(`/BestSell.json`),
       },
       {
         path: "/category/:id",
@@ -47,8 +59,6 @@ const router = createBrowserRouter([
       {
         path: "/updateProduct/:id",
         element: <UpdateProduct></UpdateProduct>,
-        loader: (params) =>
-          fetch(`http://localhost:5000/products/${params.params.id}`),
       },
       {
         path: "/category/Intel",

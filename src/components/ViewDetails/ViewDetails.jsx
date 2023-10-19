@@ -1,7 +1,17 @@
+import { useLoaderData } from "react-router-dom";
+
 const ViewDetails = () => {
-  return <div>
-    <h1>This is a Views Details page</h1>
-  </div>;
+  const viewProduct = useLoaderData();
+
+  return (
+    <div>
+      {viewProduct.map((product) => (
+        <div key={product._id}>
+          <h1>This is a Views Details page{product.length}</h1>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default ViewDetails;
