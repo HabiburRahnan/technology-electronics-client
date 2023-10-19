@@ -11,6 +11,7 @@ const BrandCategory = ({ product }) => {
           <h2 className="card-title  text-2xl font-medium mb-5">{brandName}</h2>
           <img className="w-60 h-40" src={image} alt="Shoes" />
         </div>
+       
       </div>
     </Link>
   );

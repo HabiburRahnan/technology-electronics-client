@@ -52,7 +52,7 @@ const Sony = () => {
         </div>
         <div id="slide2" className="carousel-item relative w-full">
           <img
-            src="https://i.ibb.co/7JH52jc/saB3.jpg"
+            src="https://i.ibb.co/pby5RcV/download-14.jpg"
             className="w-full h-96"
           />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -96,11 +96,39 @@ const Sony = () => {
 
       <div className="grid md:grid-cols-2 justify-center items-center gap-10">
         {sonyPhone.map((phone) =>
-          phone.brand == "sony" ? (
+          phone.brand == "Sony" ? (
             <div key={phone.id} className="card w-96 bg-base-100 shadow-xl ">
               <figure>
                 <img src={phone.photo} alt="Shoes" />
               </figure>
+              <div className="rating ml-8">
+              <input
+                type="radio"
+                name="rating"
+                className="mask mask-star-2 bg-orange-400"
+              />
+              <input
+                type="radio"
+                name="rating"
+                className="mask mask-star-2 bg-orange-400"
+                checked
+              />
+              <input
+                type="radio"
+                name="rating"
+                className="mask mask-star-2 bg-orange-400"
+              />
+              <input
+                type="radio"
+                name="rating"
+                className="mask mask-star-2 bg-orange-400"
+              />
+              <input
+                type="radio"
+                name="rating"
+                className="mask mask-star-2 bg-orange-400"
+              />
+            </div>
               <div className="card-body">
                 <h2 className="card-title">{phone.name}</h2>
                 <p>{phone.description.slice(0, 100)}</p>

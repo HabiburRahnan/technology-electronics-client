@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 const Apple = () => {
   const loadedPhone = useLoaderData();
   const [applePhone, setApplePhone] = useState(loadedPhone);
-  
 
   const handleDelete = (_id) => {
     console.log(_id);
@@ -97,12 +96,40 @@ const Apple = () => {
       </div>
 
       <div className="grid md:grid-cols-2 justify-center items-center gap-10">
-        {applePhone.map((phone) =>
+        {applePhone.map((phone, index) =>
           phone.brand == "Apple" ? (
-            <div key={phone.id} className="card w-96 bg-base-100 shadow-xl ">
+            <div key={index} className="card w-96 bg-base-100 shadow-xl ">
               <figure>
                 <img src={phone.photo} alt="Shoes" />
               </figure>
+              <div className="rating ml-8">
+                <input
+                  type="radio"
+                  name="rating"
+                  className="mask mask-star-2 bg-orange-400"
+                />
+                <input
+                  type="radio"
+                  name="rating"
+                  className="mask mask-star-2 bg-orange-400"
+                  checked
+                />
+                <input
+                  type="radio"
+                  name="rating"
+                  className="mask mask-star-2 bg-orange-400"
+                />
+                <input
+                  type="radio"
+                  name="rating"
+                  className="mask mask-star-2 bg-orange-400"
+                />
+                <input
+                  type="radio"
+                  name="rating"
+                  className="mask mask-star-2 bg-orange-400"
+                />
+              </div>
               <div className="card-body">
                 <h2 className="card-title">{phone.name}</h2>
                 <p>{phone.description.slice(0, 100)}</p>
