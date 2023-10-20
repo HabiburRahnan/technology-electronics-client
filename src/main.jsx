@@ -45,7 +45,9 @@ const router = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/",
@@ -56,7 +58,9 @@ const router = createBrowserRouter([
         path: "/category/:id",
         element: <Category></Category>,
         loader: (params) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/addProduct",
@@ -70,52 +74,81 @@ const router = createBrowserRouter([
         path: "/updateProduct/:id",
         element: <UpdateProduct></UpdateProduct>,
         loader: (params) =>
-          fetch(`http://localhost:5000/products/${params.params.id}`),
+          fetch(
+            `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/products/${params.params.id}`
+          ),
       },
       {
         path: "/category/Intel",
         element: <Intel></Intel>,
-        loader: () => fetch(`http://localhost:5000/products`),
+        loader: () =>
+          fetch(
+            `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/products`
+          ),
       },
       {
         path: "/category/Oppo",
         element: <Oppo></Oppo>,
-        loader: () => fetch(`http://localhost:5000/products`),
+        loader: () =>
+          fetch(
+            `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/products`
+          ),
       },
       {
         path: "/category/Walton",
         element: <Walton></Walton>,
-        loader: () => fetch(`http://localhost:5000/products`),
+        loader: () =>
+          fetch(
+            `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/products`
+          ),
       },
       {
         path: "/category/Samsung",
         element: <Samsung></Samsung>,
-        loader: () => fetch(`http://localhost:5000/products`),
+        loader: () =>
+          fetch(
+            `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/products`
+          ),
       },
       {
         path: "/category/Lenovo",
         element: <Lenovo></Lenovo>,
-        loader: () => fetch(`http://localhost:5000/products`),
+        loader: () =>
+          fetch(
+            `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/products`
+          ),
       },
       {
         path: "/category/Apple",
         element: <Apple></Apple>,
-        loader: () => fetch(`http://localhost:5000/products`),
+        loader: () =>
+          fetch(
+            `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/products`
+          ),
       },
       {
         path: "/category/Sony",
         element: <Sony></Sony>,
-        loader: () => fetch(`http://localhost:5000/products`),
+        loader: () =>
+          fetch(
+            `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/products`
+          ),
       },
       {
         path: "/category/Vivo",
         element: <Vivo></Vivo>,
-        loader: () => fetch(`http://localhost:5000/products`),
+        loader: () =>
+          fetch(
+            `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/products`
+          ),
       },
       {
         path: "/category/Huawei",
         element: <Huawei></Huawei>,
-        loader: () => fetch(`http://localhost:5000/products`),
+        loader: () =>
+          fetch(
+            `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/products`
+          ),
       },
       {
         path: "/myCart",
@@ -124,7 +157,10 @@ const router = createBrowserRouter([
             <MyCart></MyCart>
           </PrivetRoute>
         ),
-        loader: () => fetch(`http://localhost:5000/carts`),
+        loader: () =>
+          fetch(
+            `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/carts`
+          ),
       },
       {
         path: "/Contact",

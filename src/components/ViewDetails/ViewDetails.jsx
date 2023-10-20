@@ -7,15 +7,20 @@ const ViewDetails = () => {
   const { name, photo, brand, description, price } = viewProduct;
 
   const handleAddToCart = () => {
-    fetch(`http://localhost:5000/carts`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(viewProduct),
-    })
+    Swal.fire("Add to Cart success!", "You clicked the button!", "success");
+    fetch(
+      `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/carts`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(viewProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "success!",
@@ -31,7 +36,7 @@ const ViewDetails = () => {
     <div>
       <div className="card  bg-base-100 shadow-xl">
         <figure>
-          <img src={photo} alt="Shoes" />
+          <img className="" src={photo} alt="Shoes" />
         </figure>
         <div className="card-body">
           <h2 className="card-title text-4xl">Brand: {brand}</h2>

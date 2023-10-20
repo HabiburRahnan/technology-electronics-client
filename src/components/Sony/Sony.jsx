@@ -7,7 +7,6 @@ const Sony = () => {
   const [sonyPhone, setSonyPhone] = useState(loadedPhone);
 
   const handleDelete = (_id) => {
- 
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -18,9 +17,12 @@ const Sony = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/products/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/products/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

@@ -18,9 +18,12 @@ const Samsung = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/products/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/products/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -134,7 +137,7 @@ const Samsung = () => {
               </div>
               <div className="card-body">
                 <h2 className="card-title">{phone.name}</h2>
-                <p>{phone.description}</p>
+                <p>{phone.description.slice(0, 100)}</p>
                 <div className="btn-group gap-4">
                   <Link
                     to={`/viewDetails/${phone._id}`}

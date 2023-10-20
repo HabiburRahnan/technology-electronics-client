@@ -19,9 +19,12 @@ const MyCart = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/carts/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/carts/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -42,11 +45,11 @@ const MyCart = () => {
       {viewProduct.map((product) => (
         <div key={product._id} className="card w-96 bg-base-100 shadow-xl">
           <figure>
-            <img className="w-96" src={product.photo} alt="Shoes" />
+            <img className="w-48" src={product.photo} alt="Shoes" />
           </figure>
           <div className="card-body">
             <h2 className="card-title">{product.name}</h2>
-            <p>{product.description}</p>
+            <p>{product.description.slice(0, 200)}</p>
             <div className="card-actions justify-end">
               <button
                 onClick={() => handleDelete(product._id)}

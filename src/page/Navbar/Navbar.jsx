@@ -4,6 +4,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  console.log(user);
 
   const handleSingOut = () => {
     logOut().then().catch();
@@ -65,7 +66,11 @@ const Navbar = () => {
         {user ? (
           <>
             <p>{user.email}</p>
-            <img className="rounded-full w-12" src={user.photoURL} alt="" />
+            <img
+              className="rounded-full w-12"
+              src="../../../public/download (36).jpeg"
+              alt=""
+            />
             <button onClick={handleSingOut} className="btn">
               Log Out
             </button>

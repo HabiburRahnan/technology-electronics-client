@@ -21,13 +21,16 @@ const AddProduct = () => {
       photo,
     };
     console.log(newProduct);
-    fetch(`http://localhost:5000/Products`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
-    })
+    fetch(
+      `https://technology-electronics-server-f2xx9wl2j-habib1.vercel.app/Products`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {

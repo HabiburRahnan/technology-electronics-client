@@ -19,9 +19,9 @@ const Login = () => {
   };
   const handleLogin = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const email = form.email.value;
-    const password = form.password.value;
+    const form = new FormData(e.currentTarget);
+    const email = form.get("email");
+    const password = form.get("password");
 
     singIn(email, password)
       .then(() => {
