@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 
 const MyCart = () => {
   const loadedProduct = useLoaderData();
+  console.log(loadedProduct);
   const [viewProduct, setViewProduct] = useState(loadedProduct);
   const handleDelete = (_id) => {
     console.log(_id);

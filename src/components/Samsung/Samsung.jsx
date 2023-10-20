@@ -134,7 +134,7 @@ const Samsung = () => {
               </div>
               <div className="card-body">
                 <h2 className="card-title">{phone.name}</h2>
-                <p>{phone.description.slice(0, 100)}</p>
+                <p>{phone.description}</p>
                 <div className="btn-group gap-4">
                   <Link
                     to={`/viewDetails/${phone._id}`}

@@ -24,6 +24,7 @@ import Huawei from "./components/Huawei/Huawei";
 import UpdateProduct from "./components/UpdateProduct/UpdateProduct";
 import BestSell from "./components/BestSell/BestSell";
 import ViewDetails from "./components/ViewDetails/ViewDetails";
+import PrivetRoute from "./Provider/PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/viewDetails/:id",
-        element: <ViewDetails></ViewDetails>,
+        element: (
+          <PrivetRoute>
+            <ViewDetails></ViewDetails>
+          </PrivetRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/products/${params.id}`),
       },
@@ -55,11 +60,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/addProduct",
-        element: <AddProduct></AddProduct>,
+        element: (
+          <PrivetRoute>
+            <AddProduct></AddProduct>{" "}
+          </PrivetRoute>
+        ),
       },
       {
         path: "/updateProduct/:id",
         element: <UpdateProduct></UpdateProduct>,
+        loader: (params) =>
+          fetch(`http://localhost:5000/products/${params.params.id}`),
       },
       {
         path: "/category/Intel",
@@ -106,11 +117,15 @@ const router = createBrowserRouter([
         element: <Huawei></Huawei>,
         loader: () => fetch(`http://localhost:5000/products`),
       },
-      {
-        path: "/myCart",
-        element: <MyCart></MyCart>,
-        loader: () => fetch(`http://localhost:5000/carts`),
-      },
+      // {
+      //   // path: "/myCart",
+      //   // element: (
+      //   //   <PrivetRoute>
+      //   //     <MyCart></MyCart>
+      //   //   </PrivetRoute>
+      //   ),
+      //   loader: () => fetch(`http://localhost:5000/carts`),
+      // },
       {
         path: "/Contact",
         element: <Contact></Contact>,
