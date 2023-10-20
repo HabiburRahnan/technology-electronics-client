@@ -117,15 +117,15 @@ const router = createBrowserRouter([
         element: <Huawei></Huawei>,
         loader: () => fetch(`http://localhost:5000/products`),
       },
-      // {
-      //   // path: "/myCart",
-      //   // element: (
-      //   //   <PrivetRoute>
-      //   //     <MyCart></MyCart>
-      //   //   </PrivetRoute>
-      //   ),
-      //   loader: () => fetch(`http://localhost:5000/carts`),
-      // },
+      {
+        path: "/myCart",
+        element: (
+          <PrivetRoute>
+            <MyCart></MyCart>
+          </PrivetRoute>
+        ),
+        loader: () => fetch(`http://localhost:5000/carts`),
+      },
       {
         path: "/Contact",
         element: <Contact></Contact>,
