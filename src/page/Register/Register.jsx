@@ -32,7 +32,6 @@ const Register = () => {
       .then((result) => {
         navigate(location?.state ? location.state : "/");
         Swal.fire("success register!", "thank you!", "success");
-        console.log(result.user);
         updateProfile(result.user, {
           displayName: name,
           photoURL: photo,

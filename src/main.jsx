@@ -25,6 +25,7 @@ import UpdateProduct from "./components/UpdateProduct/UpdateProduct";
 import BestSell from "./components/BestSell/BestSell";
 import ViewDetails from "./components/ViewDetails/ViewDetails";
 import PrivetRoute from "./Provider/PrivetRoute";
+import About from "./page/About/About";
 
 const router = createBrowserRouter([
   {
@@ -165,6 +166,10 @@ const router = createBrowserRouter([
       {
         path: "/Contact",
         element: <Contact></Contact>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
 
       {

@@ -4,11 +4,12 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
 
+  // handle sin out
   const handleSingOut = () => {
     logOut().then().catch();
   };
+
   const navLinks = (
     <>
       <li>
@@ -22,6 +23,9 @@ const Navbar = () => {
       </li>
       <li>
         <Link to="/contact">Contact Us</Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
       </li>
 
       <li>
