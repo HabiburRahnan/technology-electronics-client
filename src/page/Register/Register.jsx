@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -28,9 +29,16 @@ const Register = () => {
       return;
     }
     createUser(email, password)
-      .then(() => {
+      .then((result) => {
         navigate(location?.state ? location.state : "/");
         Swal.fire("success register!", "thank you!", "success");
+        console.log(result.user);
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then()
+          .catch();
       })
       .catch(() => {
         Swal.fire("please provide right information!", "thank you!", "error");

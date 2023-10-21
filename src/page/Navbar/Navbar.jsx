@@ -65,12 +65,8 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <>
-            <p>{user.email}</p>
-            <img
-              className="rounded-full w-12"
-              src="../../../public/download (36).jpeg"
-              alt=""
-            />
+            <p>{user.displayName}</p>
+            <img className="rounded-full w-12" src={user.photoURL} alt="" />
             <button onClick={handleSingOut} className="btn">
               Log Out
             </button>

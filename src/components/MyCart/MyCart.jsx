@@ -50,10 +50,11 @@ const MyCart = () => {
           <div className="card-body">
             <h2 className="card-title">{product.name}</h2>
             <p>{product.description.slice(0, 200)}</p>
-            <div className="card-actions justify-end">
+            <div className="card-actions justify-end items-center">
+              <p className="text-xl font-semibold">Price: {product.price}</p>
               <button
                 onClick={() => handleDelete(product._id)}
-                className="btn btn-primary">
+                className="btn text-white bg-blue-600 hover:bg-blue-600">
                 Delete now
               </button>
             </div>

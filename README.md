@@ -1,6 +1,6 @@
 # Technology And Electronics
 
-## [ Live Site Link](https://technology-electronices.web.app/)
+## [ Client Live Site Link](https://technology-electronices.web.app/)
 
 ## https://technology-electronices.web.app/
 
