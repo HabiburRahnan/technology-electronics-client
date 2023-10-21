@@ -2,14 +2,14 @@ const About = () => {
   return (
     <div className="grid gap-10">
       <h1 className="text-6xl font-bold text-blue-500 text-center">
-        {" "}
+    
         About Brand Shop
       </h1>
       <div className="text-3xl m-5 font-semibold">
         <h1 className="text-2xl font-bold text-center"> Introduction:</h1>
         Welcome to Brand Shop, your ultimate source for all things technology
         and electronics. We are passionate about sharing our knowledge and
-        expertise in this ever-evolving field, and we're thrilled to have you
+        expertise in this ever-evolving field, and we re thrilled to have you
         here with us.
       </div>
 
