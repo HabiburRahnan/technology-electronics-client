@@ -67,7 +67,7 @@ const router = createBrowserRouter([
         path: "/addProduct",
         element: (
           <PrivetRoute>
-            <AddProduct></AddProduct>{" "}
+            <AddProduct></AddProduct>
           </PrivetRoute>
         ),
       },

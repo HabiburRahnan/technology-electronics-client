@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { useTheme } from "../../components/Theme/Theme";
+import { BsFillMoonStarsFill, BsSun } from "react-icons/Bs";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-
+  const { changeTheme, mode } = useTheme();
   // handle sin out
   const handleSingOut = () => {
     logOut().then().catch();
@@ -24,6 +26,7 @@ const Navbar = () => {
       <li>
         <Link to="/contact">Contact Us</Link>
       </li>
+
       <li>
         <Link to="/about">About</Link>
       </li>
@@ -54,9 +57,16 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 ">
             {navLinks}
           </ul>
+          <li className="	hover:text-blue-600" onClick={changeTheme}>
+            {mode === "dark" ? (
+              <BsSun></BsSun>
+            ) : (
+              <BsFillMoonStarsFill></BsFillMoonStarsFill>
+            )}
+          </li>
         </div>
         <a className="btn text-blue-600 font-extrabold normal-case text-xl">
           <span className="text-black">Brand</span>Shop

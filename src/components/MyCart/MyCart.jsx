@@ -7,8 +7,7 @@ const MyCart = () => {
   console.log(loadedProduct);
   const [viewProduct, setViewProduct] = useState(loadedProduct);
   const handleDelete = (_id) => {
-    console.log(_id);
-
+  
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
